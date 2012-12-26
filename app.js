@@ -1,5 +1,5 @@
 /*
- * ShitKicker
+ * app.js
  */
 
 window.onload = function()
