@@ -349,7 +349,7 @@ window.onload = function()
   });
   layer.add(triangle);
 
-  // fucking shit
+  // 3.1.14 HTML5 Canvas Groups with KineticJS
 
   /*
    * create a group which will be used to combine
@@ -383,16 +383,7 @@ window.onload = function()
       group.add(box);
     })();
   }
-  group.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-    console.log("mouseover x=" + this.getAbsolutePosition().x + ", y=" + this.getAbsolutePosition().y);
-  });
-  group.on('mouseout', function() {
-    document.body.style.cursor = 'default';
-    console.log("mouseout x=" + this.getAbsolutePosition().x + ", y=" + this.getAbsolutePosition().y);
-  });
   layer.add(group);
-
 
 
 // draggable: true,
@@ -412,55 +403,3 @@ window.onload = function()
   // Add layer to stage
   stage.add(layer);
 };
-
-
-/*
- if (false) window.onload = function() {
- var stage = new Kinetic.Stage("container", 600, 600);
- var WorldLayer = new Kinetic.Layer();
- var posx = 200;
- var posy = 200;
- var r = 100;
- var f = 1.4;
- var top = 20;
- var theta = 0.412;
- var alpha = 1;
- var squiggle = new Kinetic.Shape({
- drawFunc: function() {
- var canvas = this.getCanvas();
- var context = this.getContext();
- context.globalAlpha = alpha;
- context.beginPath(); // begin custom shape
- for (var x = 0; x < top * 2; x += 2) {
- context.bezierCurveTo(posx + r * Math.cos(x * Math.PI / top + theta), posy + r * Math.sin(x * Math.PI / top + theta),
- posx + f * r * Math.cos((x + 1) * Math.PI / top + theta), posy + f * r * Math.sin((x + 1) * Math.PI / top + theta),
- posx + r * Math.cos((x + 2) * Math.PI / top + theta), posy + r * Math.sin((x + 2) * Math.PI / top + theta));
- }
- context.closePath(); // complete custom shape
- context.lineWidth = 4;
- context.strokeStyle = "#111122";
- context.stroke();
- var grd = context.createRadialGradient(posx, posy, 0, posx, posy, 200);
- grd.addColorStop(0, "#8ED6FF"); // light blue
- grd.addColorStop(1, "#004CB3"); // dark blue
- context.fillStyle = grd;
- context.fill();
- }
- });
-
- squiggle.draggable(true);
- WorldLayer.add(squiggle);
- stage.add(WorldLayer);
-
- stage.onFrame(function(frame){
- r = Math.floor(Math.random() * 50) + 50;
- f = 3*Math.random()+0.2;
- top = Math.floor(Math.random() * 15) + 2;
- alpha = Math.random();
- theta = Math.random() * 2 * Math.PI;
- WorldLayer.draw();
- });
-
- stage.start();
- };
- */
