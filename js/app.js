@@ -197,11 +197,11 @@ window.onload = function()
     stroke: '#F00',
     strokeWidth: 3,
     fill: '#ddd',
-    text: 'COMPLEX TEXT\n\nAll the world\'s a stage, and all the men and women merely players. They have their exits and their entrances.',
+    text: 'COMPLEX TEXT\n\nAll the world\'s a',
     fontSize: 14,
     fontFamily: 'Calibri',
     textFill: '#555',
-    width: 420,
+    //width: 190,
     padding: 20,
     align: 'center',
     fontStyle: 'italic',
@@ -358,7 +358,6 @@ window.onload = function()
    * one unit
    */
   var group = new Kinetic.Group({
-    draggable: true,
     x: 560,
     y: 169,
     rotationDeg: 20
@@ -379,11 +378,32 @@ window.onload = function()
         stroke: 'black',
         strokeWidth: 4
       });
-
       group.add(box);
     })();
   }
   layer.add(group);
+
+  /// 3.2.1 HTML5 Canvas Shape Events with KineticJS
+  var triangle2 = new Kinetic.RegularPolygon({
+    draggable: true,
+    x: 790,
+    y: 255,
+    sides: 3,
+    radius: 80,
+    fill: '#00D2FF',
+    stroke: 'black',
+    strokeWidth: 4
+  });
+  triangle2.on('mouseover', function(event) {
+    console.log("SDSDSD");
+    document.body.style.cursor = 'pointer';
+    console.log("mouseover x=" + this.getAbsolutePosition().x + ", y=" + this.getAbsolutePosition().y);
+  });
+  triangle2.on('mouseout', function(event) {
+    document.body.style.cursor = 'default';
+    console.log("mouseout x=" + this.getAbsolutePosition().x + ", y=" + this.getAbsolutePosition().y);
+  });
+  layer.add(triangle2);
 
 
 // draggable: true,
